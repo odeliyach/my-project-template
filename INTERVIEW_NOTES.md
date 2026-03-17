@@ -2,12 +2,68 @@
 
 This document tracks key technical decisions, tradeoffs, and design considerations for interview preparation.
 
-## Overview
+## 🎯 Project STAR Summary
 
-Provide a high-level summary of the project:
-- What problem does it solve?
-- What are the main components?
-- What is the overall architecture?
+Use this STAR (Situation, Task, Action, Result) framework to tell your project story:
+
+### Situation
+*Describe the context and problem you were trying to solve*
+- What was the business need or technical challenge?
+- What constraints did you face (time, resources, requirements)?
+- What was the existing system or starting point?
+
+Example:
+```
+Our team needed a standardized project template that could accelerate project setup
+while demonstrating professional software engineering practices for portfolio projects.
+Many developers were starting from scratch each time, leading to inconsistent structure
+and missing best practices like CI/CD.
+```
+
+### Task
+*Explain your specific role and responsibilities*
+- What were you accountable for?
+- What were the success criteria?
+- What decisions did you own?
+
+Example:
+```
+I was responsible for designing and implementing a language-agnostic template that:
+- Supports multiple programming languages
+- Includes professional DevOps tooling (Docker, CI/CD)
+- Provides interview-focused documentation
+- Can be adopted quickly by developers of all skill levels
+```
+
+### Action
+*Detail the approach and implementation*
+- What technical decisions did you make and why?
+- What alternatives did you consider?
+- How did you structure the solution?
+- What challenges did you overcome?
+
+Example:
+```
+I chose to use Make as the build automation tool because it's language-agnostic and
+universally available. I implemented a multi-stage Dockerfile to keep production images
+small. I added INTERVIEW_NOTES.md to help developers articulate their technical decisions.
+For CI/CD, I created a flexible GitHub Actions workflow that gracefully handles projects
+without tests while providing clear extension points.
+```
+
+### Result
+*Quantify the impact and outcomes*
+- What measurable improvements resulted?
+- What feedback did you receive?
+- What would you do differently?
+
+Example:
+```
+The template reduced project setup time from ~2 hours to 15 minutes. It provides
+a professional baseline that demonstrates understanding of modern DevOps practices.
+Three team members adopted it for their portfolio projects, all reporting it helped
+them better articulate their technical decisions in interviews.
+```
 
 ## Key Design Decisions
 
@@ -22,6 +78,26 @@ Decision: Used a REST API instead of GraphQL
 Rationale: Simpler for the current use case, easier to cache, better tooling support
 Context: Limited to CRUD operations with no complex nested queries needed
 ```
+
+## 📊 Trade-offs Analysis
+
+Compare your chosen approach against alternatives using this table format:
+
+| Decision Area | Chosen Approach | Alternative Approach | Trade-off Rationale |
+|---------------|----------------|---------------------|---------------------|
+| **Build Tool** | Make | Language-specific tools (npm, gradle, cargo) | Make is language-agnostic and universal, but lacks language-specific features. Chose simplicity and portability over specialized functionality. |
+| **Container Strategy** | Multi-stage Docker | Single-stage or no container | Multi-stage reduces image size but adds complexity. Chose production efficiency over development simplicity. |
+| **CI/CD** | GitHub Actions | Jenkins, GitLab CI, CircleCI | GitHub Actions integrates natively with GitHub, free for public repos. Trade-off: vendor lock-in vs. zero configuration. |
+| **Documentation** | Markdown in repo | External wiki or docs site | In-repo docs stay synchronized with code but lack advanced features. Chose consistency over presentation. |
+| **Example** | Synchronous processing | Async queue (RabbitMQ, Redis) | Sync is simpler to debug and test but doesn't scale to high throughput. Acceptable for current load (<100 req/min). |
+
+### How to Use This Table
+
+For each major technical decision:
+1. **Decision Area**: What aspect of the system (architecture, data storage, API design)
+2. **Chosen Approach**: What you implemented
+3. **Alternative Approach**: What you considered but didn't choose
+4. **Trade-off Rationale**: Why you made this choice, including what you gained and what you sacrificed
 
 ## Tradeoffs
 
@@ -39,6 +115,46 @@ Cons: Slower for bulk operations, blocks on long-running tasks
 When to reconsider: If processing time exceeds 2-3 seconds or volume grows beyond 100 req/min
 ```
 
+## ⚡ Complexity Analysis
+
+Break down time and space complexity of critical operations:
+
+### Template Structure
+
+| Operation | Time Complexity | Space Complexity | Justification |
+|-----------|----------------|------------------|---------------|
+| **Project Setup** | O(1) | O(1) | Fixed number of files and directories created |
+| **File Copy** | O(n) | O(n) | Linear in number of template files |
+| **Make Command** | Varies | Varies | Depends on specific target implementation |
+| **Docker Build** | O(n) | O(n) | Linear in codebase size and dependencies |
+
+### Your Project Operations
+
+Use this table to analyze your specific implementation:
+
+| Operation | Time Complexity | Space Complexity | Bottleneck | Optimization Strategy |
+|-----------|----------------|------------------|-----------|----------------------|
+| **[Operation Name]** | O(?) | O(?) | [What limits performance?] | [How to improve if needed?] |
+| **Example: User Search** | O(n log n) | O(n) | Database query and sort | Add database indexing or caching |
+| **Example: Data Processing** | O(n²) | O(n) | Nested loop over items | Use hash map to reduce to O(n) |
+| **Example: File Upload** | O(n) | O(1) | Network I/O | Use streaming instead of loading into memory |
+
+### Complexity Notes
+
+- What are the bottlenecks in your algorithms?
+- What are the performance characteristics?
+- How does performance scale with input size?
+- What optimizations are possible?
+
+Example:
+```
+Operation: User search
+Time: O(n log n) - sorts results by relevance
+Space: O(n) - stores all matching results in memory
+Bottleneck: Database query for large datasets
+Optimization: Add database indexing on search columns, implement pagination
+```
+
 ## Complexity
 
 Break down time and space complexity of critical operations:
@@ -53,6 +169,8 @@ Time: O(n log n) - sorts results by relevance
 Space: O(n) - stores all matching results in memory
 Bottleneck: Database query for large datasets
 ```
+
+*Note: See the "Complexity Analysis" section above for a detailed table format.*
 
 ## Edge Cases
 
