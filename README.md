@@ -4,10 +4,10 @@
 
 <!-- Replace YOUR_USERNAME and YOUR_REPO with your actual GitHub username and repository name -->
 
-[![CI](https://github.com/YOUR_USERNAME/YOUR_REPO/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_USERNAME/YOUR_REPO/actions)
+[![CI](https://github.com/odeliyach/my-project-template/actions/workflows/ci.yml/badge.svg)](https://github.com/odeliyach/my-project-template/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Code Coverage](https://img.shields.io/badge/coverage-placeholder-yellow)](https://github.com/YOUR_USERNAME/YOUR_REPO)
-[![Linting](https://img.shields.io/badge/linting-placeholder-yellow)](https://github.com/YOUR_USERNAME/YOUR_REPO)
+[![Code Coverage](https://img.shields.io/badge/coverage-placeholder-yellow)](https://github.com/odeliyach/my-project-template)
+[![Linting](https://img.shields.io/badge/linting-placeholder-yellow)](https://github.com/odeliyach/my-project-template)
 
 ## 🚀 Quick Start
 
