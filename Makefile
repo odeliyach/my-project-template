@@ -1,20 +1,25 @@
 # Generic Makefile for project automation
 # Customize these targets based on your technology stack
 
-.PHONY: help run test build clean install
+.PHONY: help setup run test lint build clean install
 
-# Default target
-help:
+# Default target shows help
+.DEFAULT_GOAL := help
+
+help: ## Show this help message
 	@echo "Available targets:"
-	@echo "  make run     - Run the application"
-	@echo "  make test    - Run tests"
-	@echo "  make build   - Build the project"
-	@echo "  make clean   - Clean build artifacts"
-	@echo "  make install - Install dependencies"
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-15s\033[0m %s\n", $$1, $$2}'
 
-# Run the application
-# TODO: Update this command for your specific language/framework
-run:
+setup: ## Install dependencies and pre-commit hooks
+	@echo "Setting up project..."
+	@echo "TODO: Add your setup commands here"
+	@echo "Examples:"
+	@echo "  - Python: pip install -r requirements.txt && pre-commit install"
+	@echo "  - Node.js: npm install && npm run prepare"
+	@echo "  - Go: go mod download"
+	@echo "  - Java: mvn install"
+
+run: ## Run the application
 	@echo "Running application..."
 	@echo "TODO: Add your run command here"
 	@echo "Examples:"
@@ -23,9 +28,7 @@ run:
 	@echo "  - Go: go run src/main.go"
 	@echo "  - Java: java -jar target/app.jar"
 
-# Run tests
-# TODO: Update this command for your testing framework
-test:
+test: ## Run tests
 	@echo "Running tests..."
 	@echo "TODO: Add your test command here"
 	@echo "Examples:"
@@ -34,9 +37,16 @@ test:
 	@echo "  - Go: go test ./..."
 	@echo "  - Java: mvn test"
 
-# Build the project
-# TODO: Update this command for your build system
-build:
+lint: ## Run code linter
+	@echo "Running linter..."
+	@echo "TODO: Add your linting command here"
+	@echo "Examples:"
+	@echo "  - Python: pylint src/ or flake8 src/"
+	@echo "  - Node.js: npm run lint or eslint src/"
+	@echo "  - Go: golangci-lint run"
+	@echo "  - Java: mvn checkstyle:check"
+
+build: ## Build the project
 	@echo "Building project..."
 	@echo "TODO: Add your build command here"
 	@echo "Examples:"
@@ -45,19 +55,15 @@ build:
 	@echo "  - Go: go build -o bin/app"
 	@echo "  - Java: mvn package"
 
-# Clean build artifacts
-# TODO: Update paths for your build outputs
-clean:
+clean: ## Clean build artifacts
 	@echo "Cleaning build artifacts..."
 	@echo "TODO: Add cleanup commands here"
 	@echo "Examples:"
-	@echo "  - rm -rf build/ dist/ *.egg-info"
+	@echo "  - rm -rf build/ dist/ *.egg-info __pycache__"
 	@echo "  - rm -rf node_modules/.cache"
 	@echo "  - go clean"
 
-# Install dependencies
-# TODO: Update this command for your package manager
-install:
+install: ## Install dependencies
 	@echo "Installing dependencies..."
 	@echo "TODO: Add your install command here"
 	@echo "Examples:"
