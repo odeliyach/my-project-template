@@ -2,13 +2,8 @@
 
 <!-- Replace YOUR_USERNAME and YOUR_REPO with your actual GitHub username and repository name -->
 
-<a href="https://github.com/YOUR_USERNAME/YOUR_REPO/actions">
-  <img src="https://github.com/YOUR_USERNAME/YOUR_REPO/actions/workflows/ci.yml/badge.svg">
-</a>
-
-<a>
-  <img src="https://img.shields.io/badge/License-MIT-blue.svg">
-</a>
+[![CI](https://github.com/YOUR_USERNAME/YOUR_REPO/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_USERNAME/YOUR_REPO/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
 
