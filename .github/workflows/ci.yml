@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master, develop ]
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Run tests
+      run: |
+        if [ -f "Makefile" ]; then
+          echo "Found Makefile, attempting to run tests..."
+          if make -n test > /dev/null 2>&1; then
+            echo "Running: make test"
+            make test
+          elif make -n all > /dev/null 2>&1; then
+            echo "Running: make all"
+            make all
+          elif make -n > /dev/null 2>&1; then
+            echo "Running: make (default target)"
+            make
+          else
+            echo "No suitable make target found. Skipping tests."
+            exit 0
+          fi
+        else
+          echo "No Makefile found. Skipping tests."
+          exit 0
+        fi
+
+    - name: Build (if applicable)
+      run: |
+        if [ -f "Makefile" ] && make -n build > /dev/null 2>&1; then
+          echo "Running: make build"
+          make build
+        else
+          echo "No build target found or Makefile missing. Skipping build."
+          exit 0
+        fi
+      continue-on-error: true
