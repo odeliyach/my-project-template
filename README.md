@@ -1,3 +1,5 @@
+<div align="center">
+
 # [Project Name]
 
 > A clean, minimal project template suitable for any programming language with interview-focused documentation and professional DevOps setup.
@@ -8,6 +10,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Code Coverage](https://img.shields.io/badge/coverage-placeholder-yellow)](https://github.com/odeliyach/my-project-template)
 [![Linting](https://img.shields.io/badge/linting-placeholder-yellow)](https://github.com/odeliyach/my-project-template)
+</div>
 
 ## 🚀 Quick Start
 
@@ -128,3 +131,12 @@ This is a language-agnostic template. Add badges for your specific stack:
 - Document major architectural decisions in docs/DESIGN_DECISIONS.md using the ADR format.
 - The Dockerfile uses a multi-stage build to keep production images small.
 - Run `make help` to see all available commands.
+
+---
+<div align="center">
+
+Built by **Odeliya Charitonova** · [GitHub](https://github.com/odeliyach) · [LinkedIn](https://linkedin.com/in/odeliya-charitonova)
+
+*Computer Science student @ Tel Aviv University, School of CS & AI*
+
+</div>
