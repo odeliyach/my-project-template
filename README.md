@@ -6,10 +6,17 @@
 
 <!-- Replace YOUR_USERNAME and YOUR_REPO with your actual GitHub username and repository name -->
 
-[![CI](https://github.com/odeliyach/my-project-template/actions/workflows/ci.yml/badge.svg)](https://github.com/odeliyach/my-project-template/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Code Coverage](https://img.shields.io/badge/coverage-placeholder-pink)](https://github.com/odeliyach/my-project-template)
-[![Linting](https://img.shields.io/badge/linting-placeholder-purple)](https://github.com/odeliyach/my-project-template)
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-In--Progress-BAFFC9">
+  <img src="https://img.shields.io/github/actions/workflow/status/odeliyach/my-project-template/ci.yml?label=CI&color=BAFFC9&logo=github-actions&logoColor=white">
+  <img src="https://img.shields.io/badge/Language-Python-FFD1A4?logo=python&logoColor=white">
+  <img src="https://img.shields.io/badge/Framework-FastAPI-BAFFC9?logo=fastapi&logoColor=white">
+  <img src="https://img.shields.io/badge/Coverage-30%25-FFB3BA?logo=codecov&logoColor=white">
+  <img src="https://img.shields.io/badge/Linting-Ruff-D4A5FF?logo=python&logoColor=white">
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/License-MIT-E2E2E2?logo=creative-commons&logoColor=333333">
+  </a>
+</p>
 </div>
 
 ## 🚀 Quick Start
