@@ -9,7 +9,7 @@
 [![CI](https://github.com/odeliyach/my-project-template/actions/workflows/ci.yml/badge.svg)](https://github.com/odeliyach/my-project-template/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Code Coverage](https://img.shields.io/badge/coverage-placeholder-pink)](https://github.com/odeliyach/my-project-template)
-[![Linting](https://img.shields.io/badge/linting-placeholder-purpule)](https://github.com/odeliyach/my-project-template)
+[![Linting](https://img.shields.io/badge/linting-placeholder-purple)](https://github.com/odeliyach/my-project-template)
 </div>
 
 ## 🚀 Quick Start
